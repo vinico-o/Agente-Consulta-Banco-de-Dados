@@ -1,0 +1,112 @@
+/* Reset e base global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #08090d;
+  color: #e3e3e3;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* layout principal */
+.chat-layout {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* efeito de gradiente*/
+  background: radial-gradient(ellipse 85% 55% at 50% 105%, #132448 0%, #0d1424 40%, #07090e 85%);
+  overflow: hidden;
+}
+
+/* Conteúdo central verticalmente alinhado */
+.chat-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 20px 24px 20px;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* Mensagem central */
+.hero-content {
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  user-select: none;
+}
+
+.hero-title {
+  font-size: 2.1rem;
+  font-weight: 400;
+  color: #ededed;
+  letter-spacing: -0.02em;
+}
+
+/* parte inferior do site */
+.bottom-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Caixa de prompt a */
+.input-box {
+  width: 100%;
+  max-width: 780px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #171b22;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  padding: 8px 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-box:focus-within {
+  border-color: rgba(99, 130, 245, 0.45);
+  box-shadow: 0 4px 24px rgba(30, 58, 138, 0.3);
+}
+
+/*chat para digitaçao */
+.prompt-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 8px 4px;
+}
+
+.prompt-input::placeholder {
+  color: #7b8290;
+  font-weight: 400;
+}
+
+/* Aviso discreto no rodapé */
+.disclaimer-text {
+  font-size: 1rem;
+  color: #64748b;
+  text-align: center;
+  margin-top: 2px;
+}
