@@ -2,9 +2,10 @@ import './menu.css'
 
 interface MenuProps {
   isOpen: boolean
+  onAddDatabase: () => void
 }
 
-function Menu({ isOpen }: MenuProps) {
+function Menu({ isOpen, onAddDatabase }: MenuProps) {
   return (
     <div className={`menu-container ${isOpen ? 'open' : ''}`}>
       <div className="model-name">
@@ -12,7 +13,7 @@ function Menu({ isOpen }: MenuProps) {
       </div>
       <div className="db-functions">
         <h2>Banco de Dados</h2>
-        <button id="add-db-button" type="button">
+        <button id="add-db-button" type="button" onClick={onAddDatabase}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"

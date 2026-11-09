@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import './App.css'
 import Menu from './Menu'
+import ConnectionModal from './ConnectionModal'
 
 function App() {
 
   //estado para identificar se o meu esta aberto ou fechado
   //setIsMenuOpen é a função do react para atualizar o isMenuOpern
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   // inverte o valor atual do isMenuOpen
   const toggleMenu = () => {
@@ -20,7 +22,8 @@ function App() {
   return (
     <div className="chat-layout">
       {/* Exibe o Menu apenas se isMenuOpen for true */}
-      <Menu isOpen={isMenuOpen} />
+      <Menu isOpen={isMenuOpen} onAddDatabase={() => setIsModalOpen(true)} />
+      {isModalOpen && <ConnectionModal onClose={() => setIsModalOpen(false)} />}
       
       <div className="menu-button-container">
         <button id="menu-button" type="button" onClick={toggleMenu}>

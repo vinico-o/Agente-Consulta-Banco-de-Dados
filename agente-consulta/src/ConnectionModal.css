@@ -1,0 +1,113 @@
+/* Fundo escurecido atrás do formulário */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+/* Card central do modal */
+.modal-card {
+  background-color: #1e1f20;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Título */
+.modal-card h3 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #ededed;
+  letter-spacing: -0.01em;
+}
+
+/* Formulário e campos */
+.modal-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-card input {
+  background-color: #171b22;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-card input::placeholder {
+  color: #7b8290;
+}
+
+.modal-card input:focus {
+  border-color: rgba(99, 130, 245, 0.45);
+  box-shadow: 0 0 12px rgba(30, 58, 138, 0.3);
+}
+
+/* Ações / Botões */
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.btn-cancel,
+.btn-connect {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 18px;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Botão Cancelar */
+.btn-cancel {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #8e918f;
+}
+
+.btn-cancel:hover {
+  background-color: #2b2c2f;
+  color: #ffffff;
+}
+
+/* Botão Conectar */
+.btn-connect {
+  background-color: #2b2c2f;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.btn-connect:hover {
+  background-color: rgba(60, 60, 60, 0.7);
+}
+
+/* Exibe texto "Conectar" caso o botão esteja vazio no JSX */
+.btn-connect:empty::after {
+  content: 'Conectar';
+}
+
