@@ -1,0 +1,95 @@
+/* Contêiner lateral do menu */
+.menu-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 270px;
+  background-color: #1e1f20;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.35);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  padding: 0 12px;
+  gap: 16px;
+
+  /* Por padrão fica escondido à esquerda */
+  transform: translateX(-100%);
+  
+  /* Transição suave tanto para ENTRAR quanto para SAIR */
+  transition: transform 0.25s ease;
+}
+
+.menu-container.open {
+  transform: translateX(0);
+}
+
+/* Título no topo alinhado à direita (para não encavalar no botão do menu) */
+.model-name {
+  align-self: flex-end;
+  margin-top: 22px;
+  margin-right: 6px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+}
+
+.model-name h2 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #e3e3e3;
+  letter-spacing: -0.01em;
+}
+
+/* Seções do menu */
+.db-functions,
+.db-schema {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Títulos de seção (como "Notebooks" na foto) */
+.db-functions > h2,
+.db-schema > h2 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #8e918f;
+  padding: 8px 14px 4px 14px;
+  letter-spacing: 0.01em;
+}
+
+/* Item / Botão no estilo pílula arredondada da foto */
+#add-db-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 9999px;
+  border: none;
+  background-color: transparent;
+  color: #e3e3e3;
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  user-select: none;
+}
+
+#add-db-button svg {
+  flex-shrink: 0;
+  color: #c4c7c5;
+}
+
+/* Efeito de hover suave idêntico ao item selecionado da imagem */
+#add-db-button:hover {
+  background-color: #2b2c2f;
+  color: #ffffff;
+}
+
+#add-db-button:hover svg {
+  color: #ffffff;
+}
