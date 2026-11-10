@@ -10,6 +10,7 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [tables, setTables] = useState<string[]>([])
+  const [dbName, setDbName] = useState<string>('')
 
   // inverte o valor atual do isMenuOpen
   const toggleMenu = () => {
@@ -23,8 +24,16 @@ function App() {
   return (
     <div className="chat-layout">
       {/* Exibe o Menu apenas se isMenuOpen for true */}
-      <Menu isOpen={isMenuOpen} onAddDatabase={() => setIsModalOpen(true)} tables={tables} />
-      {isModalOpen && <ConnectionModal onClose={() => setIsModalOpen(false)} onSuccess={( novasTabelas ) => setTables(novasTabelas)}/>}
+      <Menu isOpen={isMenuOpen} onAddDatabase={() => setIsModalOpen(true)} tables={tables} dbName={dbName} />
+      {isModalOpen && (
+      <ConnectionModal 
+        onClose={() => setIsModalOpen(false)} 
+        onSuccess={(novasTabelas, nomeDoBanco) => {
+          setTables(novasTabelas)
+          setDbName(nomeDoBanco)
+        }}
+      />
+    )}
       
       <div className="menu-button-container">
         <button id="menu-button" type="button" onClick={toggleMenu}>

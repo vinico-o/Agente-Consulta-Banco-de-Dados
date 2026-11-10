@@ -4,9 +4,10 @@ interface MenuProps {
   isOpen: boolean
   onAddDatabase: () => void
   tables: string[]
+  dbName: string
 }
 
-function Menu({ isOpen, onAddDatabase, tables }: MenuProps) {
+function Menu({ isOpen, onAddDatabase, tables, dbName }: MenuProps) {
   return (
     <div className={`menu-container ${isOpen ? 'open' : ''}`}>
       <div className="model-name">
@@ -14,6 +15,7 @@ function Menu({ isOpen, onAddDatabase, tables }: MenuProps) {
       </div>
       <div className="db-functions">
         <h2>Banco de Dados</h2>
+        <p key={dbName}>{dbName}</p>
         <button id="add-db-button" type="button" onClick={onAddDatabase}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

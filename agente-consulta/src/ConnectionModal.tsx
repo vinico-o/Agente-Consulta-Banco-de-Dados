@@ -3,7 +3,7 @@ import './ConnectionModal.css'
 
 interface ConnectionModalProps {
   onClose: () => void
-  onSuccess: (tables: string[]) => void
+  onSuccess: (tables: string[], dbName: string) => void
 }
 
 
@@ -19,7 +19,7 @@ function ConnectionModal({ onClose, onSuccess }: ConnectionModalProps) {
       e.preventDefault() // Impede a página de recarregar
 
   try {
-    const response = await fetch('http://localhost:3001/api/connect', {
+    const response = await fetch('http://localhost:8000/api/connect', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ host, port, database, user, password })
@@ -29,7 +29,7 @@ function ConnectionModal({ onClose, onSuccess }: ConnectionModalProps) {
 
       if(data.success) {
         alert("Conexão com o Banco foi concluída!")
-        onSuccess(data.tables) //passa as tabelas para o App.tsx
+        onSuccess(data.tables, database) //passa as tabelas para o App.tsx
         onClose()
       } else {
         alert(data.message)
