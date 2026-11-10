@@ -9,6 +9,7 @@ function App() {
   //setIsMenuOpen é a função do react para atualizar o isMenuOpern
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [tables, setTables] = useState<string[]>([])
 
   // inverte o valor atual do isMenuOpen
   const toggleMenu = () => {
@@ -22,8 +23,8 @@ function App() {
   return (
     <div className="chat-layout">
       {/* Exibe o Menu apenas se isMenuOpen for true */}
-      <Menu isOpen={isMenuOpen} onAddDatabase={() => setIsModalOpen(true)} />
-      {isModalOpen && <ConnectionModal onClose={() => setIsModalOpen(false)} />}
+      <Menu isOpen={isMenuOpen} onAddDatabase={() => setIsModalOpen(true)} tables={tables} />
+      {isModalOpen && <ConnectionModal onClose={() => setIsModalOpen(false)} onSuccess={( novasTabelas ) => setTables(novasTabelas)}/>}
       
       <div className="menu-button-container">
         <button id="menu-button" type="button" onClick={toggleMenu}>

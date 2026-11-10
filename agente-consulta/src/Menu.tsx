@@ -3,9 +3,10 @@ import './menu.css'
 interface MenuProps {
   isOpen: boolean
   onAddDatabase: () => void
+  tables: string[]
 }
 
-function Menu({ isOpen, onAddDatabase }: MenuProps) {
+function Menu({ isOpen, onAddDatabase, tables }: MenuProps) {
   return (
     <div className={`menu-container ${isOpen ? 'open' : ''}`}>
       <div className="model-name">
@@ -32,6 +33,9 @@ function Menu({ isOpen, onAddDatabase }: MenuProps) {
       </div>
       <div className="db-schema">
         <h2>Esquema</h2>
+        {tables.map((table) => (
+          <p key={table}>{table}</p>
+        ))}
       </div>
     </div>
   )
