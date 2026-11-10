@@ -96,17 +96,11 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: #171b22;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #242528;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 100px;
   padding: 8px 14px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.input-box:focus-within {
-  border-color: rgba(99, 130, 245, 0.45);
-  box-shadow: 0 4px 24px rgba(30, 58, 138, 0.3);
 }
 
 /*chat para digitaçao */

@@ -17,7 +17,7 @@
   /* Por padrão fica escondido à esquerda */
   transform: translateX(-100%);
   
-  /* Transição suave tanto para ENTRAR quanto para SAIR */
+  /* transicao */
   transition: transform 0.25s ease;
 }
 
@@ -25,7 +25,7 @@
   transform: translateX(0);
 }
 
-/* Título no topo alinhado à direita (para não encavalar no botão do menu) */
+/* Título no topo alinhado à direita */
 .model-name {
   align-self: flex-end;
   margin-top: 22px;
@@ -43,14 +43,21 @@
 }
 
 /* Seções do menu */
-.db-functions,
-.db-schema {
+.db-functions {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-/* Títulos de seção (como "Notebooks" na foto) */
+.db-schema {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-height: 0;
+}
+
+/* títulos de seção */
 .db-functions > h2,
 .db-schema > h2 {
   font-size: 0.85rem;
@@ -60,7 +67,35 @@
   letter-spacing: 0.01em;
 }
 
-/* Item / Botão no estilo pílula arredondada da foto */
+/* Identificador de status do banco de dados conectado */
+.db-status-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 4px;
+  padding: 8px 14px;
+  border: none;
+}
+
+.db-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.7);
+  flex-shrink: 0;
+}
+
+.db-status-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* botão arredondado */
 #add-db-button {
   display: flex;
   align-items: center;
@@ -84,7 +119,7 @@
   color: #c4c7c5;
 }
 
-/* Efeito de hover suave idêntico ao item selecionado da imagem */
+/* efeito de hover*/
 #add-db-button:hover {
   background-color: #2b2c2f;
   color: #ffffff;
@@ -92,4 +127,108 @@
 
 #add-db-button:hover svg {
   color: #ffffff;
+}
+
+/* Campo de busca para filtrar tabelas */
+.table-search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #242528;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  padding: 6px 12px;
+  margin: 0 4px 6px 4px;
+}
+
+.table-search-box svg {
+  color: #7b8290;
+  flex-shrink: 0;
+}
+
+.table-search-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 0.82rem;
+  padding: 2px 0;
+}
+
+.table-search-input::placeholder {
+  color: #7b8290;
+}
+
+/* Lista de tabelas em cascata com rolagem */
+.tables-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 4px 16px 4px;
+}
+
+/* Barra de rolagem */
+.tables-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.tables-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tables-list::-webkit-scrollbar-thumb {
+  background-color: #2b2c2f;
+  border-radius: 9999px;
+}
+
+.tables-list::-webkit-scrollbar-thumb:hover {
+  background-color: #3c3d40;
+}
+
+/* Itens de tabela */
+.table-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 9999px;
+  color: #c4c7c5;
+  font-size: 0.85rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.table-item svg {
+  flex-shrink: 0;
+  color: #8e918f;
+  transition: color 0.15s ease;
+}
+
+.table-item span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table-item:hover {
+  background-color: #2b2c2f;
+  color: #ffffff;
+}
+
+.table-item:hover svg {
+  color: #b5b9c7;
+}
+
+/* Aviso discreto quando o filtro nao encontra tabelas */
+.no-tables-text {
+  font-size: 0.8rem;
+  color: #64748b;
+  text-align: center;
+  padding: 12px 6px;
 }

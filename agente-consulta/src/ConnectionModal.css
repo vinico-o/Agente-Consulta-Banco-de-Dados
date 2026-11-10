@@ -42,23 +42,17 @@
 }
 
 .modal-card input {
-  background-color: #171b22;
+  background-color: #242528;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
   padding: 10px 14px;
   font-size: 0.95rem;
   color: #ffffff;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .modal-card input::placeholder {
   color: #7b8290;
-}
-
-.modal-card input:focus {
-  border-color: rgba(99, 130, 245, 0.45);
-  box-shadow: 0 0 12px rgba(30, 58, 138, 0.3);
 }
 
 /* Ações / Botões */
